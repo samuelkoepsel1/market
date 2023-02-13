@@ -1,0 +1,19 @@
+{
+    "name": "samuelkoepsel1/backend",
+    "autoload": {
+        "psr-4": {
+            "Samuelkoepsel1\\Backend\\": "src/",
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "samuelkoepsel1",
+            "email": "skoepsel@hotmail.com.br"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

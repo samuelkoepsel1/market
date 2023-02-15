@@ -74,7 +74,7 @@ const Home = () => {
                     Carrinho
                 </li>
             </ul>
-            <div className="outlet">
+            <div className="market">
                 {handleTabsState()}
             </div>
         </div>

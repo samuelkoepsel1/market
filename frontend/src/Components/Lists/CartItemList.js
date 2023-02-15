@@ -3,7 +3,7 @@ import CartItemRow from './CartItemRow'
 
 export default function CartItemList({ carts, handleCartAmount }) {
   return (
-    <div className="saleList">
+    <div className="cart-item-list">
       {
         carts.map(cart => {
           return <CartItemRow key={cart.id} cart={cart} handleCartAmount={handleCartAmount}></CartItemRow>

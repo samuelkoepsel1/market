@@ -14,7 +14,7 @@ export default function CartItemRow({ cart, handleCartAmount }) {
     handleCartAmount(0)
   }
   return (
-    <div className="saleListItem">
+    <div className="cart-item">
       <div className="info">
         <label className="name">{cart.product}</label>
       </div>

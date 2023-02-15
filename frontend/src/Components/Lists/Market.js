@@ -16,7 +16,7 @@ export default function Market({ handleCart }) {
   }
 
   return (
-    <div className="HomeTab">
+    <div className="market-list">
       {produtcsTypes.map(productType => {
         const isType = product => product.product_type_id === productType.id
         const productsFiltred = products.filter(isType)

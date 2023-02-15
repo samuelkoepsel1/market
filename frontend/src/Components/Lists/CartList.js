@@ -29,7 +29,7 @@ export default function CartList() {
   }
 
   return (
-    <div className="saleTab">
+    <div className="cart">
       {carts !== 'undefined' && carts.length === 0 ? <label>O carrinho está vazio</label> :
         <>
           <CartItemList carts={carts} handleCartAmount={handleCartAmount}></CartItemList>

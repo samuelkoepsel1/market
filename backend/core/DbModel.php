@@ -28,11 +28,16 @@ abstract class DbModel extends Model
         $attributes = $this->attributes();
 
         if ($this->id) {
-            $statement = self::prepare("UPDATE $tableName SET " . implode(", ", array_map(fn($attr) => "$attr = :$attr", $attributes)) . " 
-            WHERE id = {$this->id}");
+            $fields = implode("", array_map(function($attr) {
+                return $this->$attr ? "$attr = :$attr," : "";
+            }, $attributes));
+            $fields = substr($fields, 0, -1);
+            $statement = self::prepare("UPDATE $tableName SET " . $fields . " WHERE id = {$this->id}");
 
             foreach ($attributes as $attribute) {
-                $statement->bindValue(":$attribute", $this->{$attribute});
+                if ($this->$attribute) {
+                    $statement->bindValue(":$attribute", $this->{$attribute});
+                }
             }
 
             $statement->execute();
@@ -47,17 +52,15 @@ abstract class DbModel extends Model
             $statement->bindValue(":$attribute", $this->{$attribute});
         }
 
-        $statement->execute();
-        return true;
+        return $statement->execute();
     }
 
     public function delete(int $id)
     {
         $tableName = $this->tableName();
         $statement = self::prepare("DELETE FROM $tableName WHERE id = $id");
-        $statement->execute();
 
-        return true;
+        return $statement->execute();
     }
 
     public function findOne($where)

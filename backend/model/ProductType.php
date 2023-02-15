@@ -11,7 +11,6 @@ class ProductType extends DbModel
 {
     public ?int $id = null;
     public ?string $name = null;
-    public ?float $tax = null;
 
     public function tableName(): string
     {
@@ -22,7 +21,6 @@ class ProductType extends DbModel
     {
         return [
             'name' => [self::RULE_REQUIRED],
-            'tax' => [self::RULE_REQUIRED],
         ];
     }
 
@@ -30,7 +28,6 @@ class ProductType extends DbModel
     {
         return [
             'name',
-            'tax'
         ];
     }
 }

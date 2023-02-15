@@ -66,6 +66,8 @@ class Controller
         if ($this->model->save()) {
             return 'Success';
         }
+        var_dump('teste');
+        die;
 
         return 'Error';
     }

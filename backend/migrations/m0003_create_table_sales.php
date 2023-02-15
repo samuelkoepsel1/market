@@ -2,7 +2,7 @@
 
 use app\core\Application;
 
-class m0004_create_table_sales {
+class m0003_create_table_sales {
 
     public function up()
     {
@@ -10,13 +10,8 @@ class m0004_create_table_sales {
         $SQL = "CREATE TABLE sales (
             id SERIAL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            cart_id INT NOT NULL,
-            status INT NOT NULL,
-            total FLOAT NOT NULL,
-            PRIMARY KEY(id),
-            CONSTRAINT fk_cart
-                FOREIGN KEY(cart_id)
-                    REFERENCES carts(id)
+            total INT NOT NULL,
+            PRIMARY KEY(id)
         );";
         $db->pdo->exec($SQL);
     }

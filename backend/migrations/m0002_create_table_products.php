@@ -11,7 +11,7 @@ class m0002_create_table_products {
             id SERIAL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             name VARCHAR(256) NOT NULL,
-            value FLOAT NOT NULL,
+            value INT NOT NULL,
             product_type_id INT NOT NULL,
             PRIMARY KEY(id),
             CONSTRAINT fk_product_type

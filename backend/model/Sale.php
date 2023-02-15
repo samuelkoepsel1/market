@@ -9,13 +9,8 @@ use app\core\DbModel;
  */
 class Sale extends DbModel
 {
-    const STATUS_OPEN = 1;
-    const STATUS_CLOSED = 2;
-
     public ?int $id = null;
-    public ?int $cart_id = null;
-    public ?int $status = self::STATUS_OPEN;
-    public ?float $total = null;
+    public ?int $total = null;
 
     public function tableName(): string
     {
@@ -25,7 +20,6 @@ class Sale extends DbModel
     public function rules():array
     {
         return [
-            'cart_id' => [self::RULE_REQUIRED],
             'total' => [self::RULE_REQUIRED],
         ];
     }
@@ -33,9 +27,15 @@ class Sale extends DbModel
     public function attributes(): array
     {
         return [
-            'cart_id',
-            'status',
             'total'
         ];
+    }
+
+    public function getLastSale()
+    {
+        $statement = self::prepare("SELECT id FROM sales ORDER BY created_at DESC LIMIT 1");
+        $statement->execute();
+
+        return $statement->fetchColumn();
     }
 }

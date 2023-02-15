@@ -35,6 +35,11 @@ class Application
         $this->router->addNewRoute('PATCH', '\product-type', 'app\Controller\ProductTypeController', 'patch');
         $this->router->addNewRoute('DELETE', '\product-type', 'app\Controller\ProductTypeController', 'delete');
 
+        $this->router->addNewRoute('GET', '\tax', 'app\Controller\TaxController', 'get');
+        $this->router->addNewRoute('POST', '\tax', 'app\Controller\TaxController', 'post');
+        $this->router->addNewRoute('PATCH', '\tax', 'app\Controller\TaxController', 'patch');
+        $this->router->addNewRoute('DELETE', '\tax', 'app\Controller\TaxController', 'delete');
+
         $this->router->addNewRoute('GET', '\product', 'app\Controller\ProductController', 'get');
         $this->router->addNewRoute('POST', '\product', 'app\Controller\ProductController', 'post');
         $this->router->addNewRoute('PATCH', '\product', 'app\Controller\ProductController', 'patch');
@@ -61,7 +66,7 @@ class Application
             $route = $this->router->getRequestRoute();
 
             if (!$route) {
-                throw new \Exception(404, 'Rota não registrada.');
+                throw new \Exception('Rota não registrada.', 404);
             }
 
             $class = $route['resourceClass'];
@@ -77,6 +82,7 @@ class Application
             $response['error']['file'] = $e->getFile();
             $response['error']['line'] = $e->getLine();
         } catch (Throwable $e) {
+            $responseCode = 500;
             $response['error']['code'] = $e->getCode();
             $response['error']['message'] = $e->getMessage();
             $response['error']['file'] = $e->getFile();
@@ -85,7 +91,7 @@ class Application
 
         try {
             $this->defheader();
-            http_response_code(200);
+            http_response_code($responseCode);
             echo json_encode($response);
         } catch (Throwable $e) {
             http_response_code(500);

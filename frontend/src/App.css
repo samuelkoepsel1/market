@@ -1,0 +1,17 @@
+.App{
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.containerProduct{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product{
+  flex: 1 0 21%;
+  margin: 5px;
+  height: 100px;
+  background-color: blue;
+}

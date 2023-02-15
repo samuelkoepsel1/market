@@ -7,7 +7,7 @@ use app\core\DbModel;
 /**
  * @package app\model
  */
-class Product extends DbModel
+class Tax extends DbModel
 {
     public ?int $id = null;
     public ?string $name = null;
@@ -16,7 +16,7 @@ class Product extends DbModel
 
     public function tableName(): string
     {
-        return 'products';
+        return 'taxes';
     }
 
     public function rules():array
@@ -40,14 +40,14 @@ class Product extends DbModel
     public function get()
     {
         $statement = self::prepare("
-            SELECT p.id AS id,
-                   p.name AS name,
-                   p.value AS value,
-                   p.product_type_id AS product_type_id,
+            SELECT t.id AS id,
+                   t.name AS name,
+                   t.value AS value,
+                   t.product_type_id AS product_type_id,
                    pt.name AS type
-            FROM products p
+            FROM taxes t
             LEFT JOIN products_types pt
-            ON pt.id = p.id ");
+            ON pt.id = t.product_type_id ");
         $statement->execute();
 
         return $statement->fetchAll();

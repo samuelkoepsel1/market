@@ -2,7 +2,7 @@
 
 use app\core\Application;
 
-class m0003_create_table_carts {
+class m0004_create_table_carts {
 
     public function up()
     {
@@ -11,11 +11,16 @@ class m0003_create_table_carts {
             id SERIAL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             product_id INT NOT NULL,
+            sale_id INT,
             amount INT NOT NULL,
+            status INT NOT NULL,
             PRIMARY KEY(id),
             CONSTRAINT fk_product
                 FOREIGN KEY(product_id)
-                    REFERENCES products(id)
+                    REFERENCES products(id),
+            CONSTRAINT fk_sale
+                FOREIGN KEY(sale_id)
+                    REFERENCES sales(id)
         );";
         $db->pdo->exec($SQL);
     }

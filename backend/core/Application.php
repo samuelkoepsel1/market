@@ -9,15 +9,9 @@ use Throwable;
  */
 class Application
 {
-    const EVENT_BEFORE_REQUEST = 'beforeRequest';
-    const EVENT_AFTER_REQUEST = 'afterRequest';
-
-    protected array $eventListeners = [];
-
     public static Application $app;
     public static string $ROOT_DIR;
     public Router $router;
-    public ?Controller $controller = null;
     public Database $db;
 
     public function __construct($rootDir, $config)
@@ -102,11 +96,8 @@ class Application
     function defheader()
     {
         header('Content-Type: application/json');
-        // header('Access-Control-Allow-Headers: X-Requested-With, Origin, Content-Type, X-CSRF-Token, Accept');
         header('Access-Control-Allow-Headers: Content-Type');
         header('Access-Control-Allow-Credentials: true');
-        // header('Access-Control-Max-Age: 86400');    // cache for 1 day
-        // header('Cache-Control: public');
         header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
         if (isset($_SERVER['HTTP_ORIGIN'])) {
             header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");

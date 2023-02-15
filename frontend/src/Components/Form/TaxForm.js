@@ -49,7 +49,7 @@ export default function TaxForm() {
             })}
           </select>
         <div className="input">
-          <input placeholder="Preço" ref={prodValueRef} type="number" min="0"></input>
+          <input placeholder="Porcentagem" ref={prodValueRef} type="number" min="0"></input>
         </div>
 
         <div className="action">

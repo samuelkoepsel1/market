@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function CartItemRow({ cart, handleCartAmount }) {
-  function handleItemCartAmount(newQuantity) {
-    handleCartAmount(cart.id, newQuantity)
+  function handleItemCartAmount(amount) {
+    handleCartAmount(cart.id, amount)
   }
   function handleAdd() {
     handleItemCartAmount(cart.amount + 1)
@@ -11,7 +11,7 @@ export default function CartItemRow({ cart, handleCartAmount }) {
     handleItemCartAmount(cart.amount - 1)
   }
   function handleRemoveItem() {
-    handleCartAmount(0)
+    handleItemCartAmount(0)
   }
   return (
     <div className="cart-item">
@@ -24,8 +24,8 @@ export default function CartItemRow({ cart, handleCartAmount }) {
         <button onClick={handleAdd}>+</button>
       </div>
       <div className="total">
-        <label>R$ {(cart.value/100 * cart.amount).toFixed(2).replace('.', ',')}</label>
-        <label>R$ {(cart.tax/100 * cart.amount).toFixed(2).replace('.', ',')}</label>
+        <label>Impostos: R$ {(cart.tax/100 * cart.amount).toFixed(2).replace('.', ',')}</label>
+        <label>Valor: R$ {(cart.value/100 * cart.amount).toFixed(2).replace('.', ',')}</label>
         <button onClick={handleRemoveItem}>X</button>
       </div>
     </div>

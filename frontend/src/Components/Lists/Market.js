@@ -12,7 +12,7 @@ export default function Market({ handleCart }) {
   }, [])
 
   function handleAddProduct(productId) {
-    postCart({product_id: productId}, handleCart());
+    postCart({product_id: productId}, handleCart);
   }
 
   return (

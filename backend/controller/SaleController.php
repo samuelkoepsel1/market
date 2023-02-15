@@ -4,7 +4,6 @@ namespace app\controller;
 
 use app\core\Controller;
 use app\model\Cart;
-use app\model\CartSale;
 use app\model\Sale;
 
 /**

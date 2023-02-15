@@ -30,30 +30,30 @@ class Application
     private function initRoutes()
     {
         $this->router = new Router();
-        $this->router->addNewRoute('GET', '\product-type', 'app\Controller\ProductTypeController', 'get');
-        $this->router->addNewRoute('POST', '\product-type', 'app\Controller\ProductTypeController', 'post');
-        $this->router->addNewRoute('PATCH', '\product-type', 'app\Controller\ProductTypeController', 'patch');
-        $this->router->addNewRoute('DELETE', '\product-type', 'app\Controller\ProductTypeController', 'delete');
+        $this->router->addNewRoute('GET', '\product-type', 'app\controller\ProductTypeController', 'get');
+        $this->router->addNewRoute('POST', '\product-type', 'app\controller\ProductTypeController', 'post');
+        $this->router->addNewRoute('PATCH', '\product-type', 'app\controller\ProductTypeController', 'patch');
+        $this->router->addNewRoute('DELETE', '\product-type', 'app\controller\ProductTypeController', 'delete');
 
-        $this->router->addNewRoute('GET', '\tax', 'app\Controller\TaxController', 'get');
-        $this->router->addNewRoute('POST', '\tax', 'app\Controller\TaxController', 'post');
-        $this->router->addNewRoute('PATCH', '\tax', 'app\Controller\TaxController', 'patch');
-        $this->router->addNewRoute('DELETE', '\tax', 'app\Controller\TaxController', 'delete');
+        $this->router->addNewRoute('GET', '\tax', 'app\controller\TaxController', 'get');
+        $this->router->addNewRoute('POST', '\tax', 'app\controller\TaxController', 'post');
+        $this->router->addNewRoute('PATCH', '\tax', 'app\controller\TaxController', 'patch');
+        $this->router->addNewRoute('DELETE', '\tax', 'app\controller\TaxController', 'delete');
 
-        $this->router->addNewRoute('GET', '\product', 'app\Controller\ProductController', 'get');
-        $this->router->addNewRoute('POST', '\product', 'app\Controller\ProductController', 'post');
-        $this->router->addNewRoute('PATCH', '\product', 'app\Controller\ProductController', 'patch');
-        $this->router->addNewRoute('DELETE', '\product', 'app\Controller\ProductController', 'delete');
+        $this->router->addNewRoute('GET', '\product', 'app\controller\ProductController', 'get');
+        $this->router->addNewRoute('POST', '\product', 'app\controller\ProductController', 'post');
+        $this->router->addNewRoute('PATCH', '\product', 'app\controller\ProductController', 'patch');
+        $this->router->addNewRoute('DELETE', '\product', 'app\controller\ProductController', 'delete');
 
-        $this->router->addNewRoute('GET', '\cart', 'app\Controller\CartController', 'get');
-        $this->router->addNewRoute('POST', '\cart', 'app\Controller\CartController', 'post');
-        $this->router->addNewRoute('PATCH', '\cart', 'app\Controller\CartController', 'patch');
-        $this->router->addNewRoute('DELETE', '\cart', 'app\Controller\CartController', 'delete');
+        $this->router->addNewRoute('GET', '\cart', 'app\controller\CartController', 'get');
+        $this->router->addNewRoute('POST', '\cart', 'app\controller\CartController', 'post');
+        $this->router->addNewRoute('PATCH', '\cart', 'app\controller\CartController', 'patch');
+        $this->router->addNewRoute('DELETE', '\cart', 'app\controller\CartController', 'delete');
 
-        $this->router->addNewRoute('GET', '\sale', 'app\Controller\SaleController', 'get');
-        $this->router->addNewRoute('POST', '\sale', 'app\Controller\SaleController', 'post');
-        $this->router->addNewRoute('PATCH', '\sale', 'app\Controller\SaleController', 'patch');
-        $this->router->addNewRoute('DELETE', '\sale', 'app\Controller\SaleController', 'delete');
+        $this->router->addNewRoute('GET', '\sale', 'app\controller\SaleController', 'get');
+        $this->router->addNewRoute('POST', '\sale', 'app\controller\SaleController', 'post');
+        $this->router->addNewRoute('PATCH', '\sale', 'app\controller\SaleController', 'patch');
+        $this->router->addNewRoute('DELETE', '\sale', 'app\controller\SaleController', 'delete');
     }
 
     /**

@@ -37,7 +37,7 @@ export default function ProductForm() {
   }
 
   return (
-    <div className="product-table">
+    <div className="product-form">
       <div className="form">
         <label>Adicionar produto</label>
         <div className="input">

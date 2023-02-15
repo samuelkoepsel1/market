@@ -133,8 +133,6 @@ const postCart = (body, callBack) => {
 		credentials: 'include'
 	}
 
-	console.log(body);
-
 	fetch(apiAdress + 'cart', requestOptions)
 		.then(res => res.json())
 		.then((result) => {

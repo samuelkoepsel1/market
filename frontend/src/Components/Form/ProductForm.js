@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { deleteProduct, getProduct, getProductType, postProduct } from "../../Routes";
 import ProductTable from "./ProductTable";
 
-export default function ProductTab() {
+export default function ProductForm() {
   const [products, setProducts] = useState([])
   const [productsTypes, setProductsTypes] = useState([])
 
@@ -37,10 +37,10 @@ export default function ProductTab() {
   }
 
   return (
-    <div className="userTab">
-      <div className="editAdd">
+    <div className="product-table">
+      <div className="form">
         <label>Adicionar produto</label>
-        <div className="inputs">
+        <div className="input">
           <input placeholder="Nome" ref={prodNameRef} type="text"></input>
         </div>
         <select ref={prodProductTypeIdRef}>
@@ -48,11 +48,11 @@ export default function ProductTab() {
               return <option key={productType.id} value={productType.id}>{productType.name}</option>
             })}
           </select>
-        <div className="inputs">
+        <div className="input">
           <input placeholder="Preço" ref={prodValueRef} type="number" min="0"></input>
         </div>
 
-        <div className="actions">
+        <div className="action">
           <button onClick={handleAddProduct}>Adicionar</button>
         </div>
       </div>

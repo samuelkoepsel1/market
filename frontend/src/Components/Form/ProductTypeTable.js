@@ -3,7 +3,7 @@ import ProductTypeRow from './ProductTypeRow'
 
 export default function ProductTypeTable({ productsTypes, handleDeleteProductType }) {
   return (
-    <div className="tableWrapper products">
+    <div className="tableWrapper products-types">
       <table>
         <thead>
           <tr>

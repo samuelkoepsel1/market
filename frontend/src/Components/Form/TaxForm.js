@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { deleteTax, getProductType, getTax, postTax } from "../../Routes";
 import TaxTable from "./TaxTable";
 
-export default function TaxTab() {
+export default function TaxForm() {
   const [taxes, setTaxes] = useState([])
   const [productsTypes, setProductsTypes] = useState([])
 
@@ -37,10 +37,10 @@ export default function TaxTab() {
   }
 
   return (
-    <div className="userTab">
-      <div className="editAdd">
+    <div className="tax-form">
+      <div className="form">
         <label>Adicionar imposto</label>
-        <div className="inputs">
+        <div className="input">
           <input placeholder="Nome" ref={prodNameRef} type="text"></input>
         </div>
         <select ref={prodProductTypeIdRef}>
@@ -48,11 +48,11 @@ export default function TaxTab() {
               return <option key={productType.id} value={productType.id}>{productType.name}</option>
             })}
           </select>
-        <div className="inputs">
+        <div className="input">
           <input placeholder="Preço" ref={prodValueRef} type="number" min="0"></input>
         </div>
 
-        <div className="actions">
+        <div className="action">
           <button onClick={handleAddTax}>Adicionar</button>
         </div>
       </div>

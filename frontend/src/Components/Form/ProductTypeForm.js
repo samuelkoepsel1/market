@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { deleteProductType, getProductType, postProductType } from "../../Routes";
 import ProductTypeTable from "./ProductTypeTable";
 
-export default function ProductTab() {
+export default function ProductTypeForm() {
   const [productsTypes, setProductsTypes] = useState([])
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function ProductTab() {
 
   const prodNameRef = useRef()
 
-  function handleAddProduct(e) {
+  function handleAddProduct() {
     const prodName = prodNameRef.current.value;
 
     if (prodName === '') return
@@ -28,14 +28,14 @@ export default function ProductTab() {
   }
 
   return (
-    <div className="userTab">
-      <div className="editAdd">
+    <div className="product-type-form">
+      <div className="form">
         <label>Adicionar tipo de produto</label>
-        <div className="inputs">
+        <div className="input">
           <input placeholder="Nome" ref={prodNameRef} type="text"></input>
         </div>
 
-        <div className="actions">
+        <div className="action">
           <button onClick={handleAddProduct}>Adicionar</button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import TaxRow from './TaxRow'
 
 export default function TaxTable({ taxes, handleDeleteTax }) {
   return (
-    <div className="tableWrapper products">
+    <div className="tableWrapper taxes">
       <table>
         <thead>
           <tr>
